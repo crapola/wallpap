@@ -1,8 +1,3 @@
-// Modify this
-
-float ra=16;
-float rb=16;
-
 float intensity(float x,float y,int i)
 {
     float s=0.1f;

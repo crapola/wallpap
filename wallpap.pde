@@ -1,15 +1,11 @@
+// Real-time window buffer
 PImage buffer;
-
-int bw=1920;
-int bh=1080;
 
 void setup()
 {
     size(768,512);
     buffer=createImage(768,512,RGB);
-
-    frameRate(30);
-    noiseSeed(0);
+    frameRate(15);
 }
 
 void draw()
@@ -20,17 +16,16 @@ void draw()
 
 void mouseClicked()
 {
+    // Render big and save
     PImage large=createImage(bw,bh,RGB);
     render(large);
-    large.save("image.bmp");
+    large.save(filename);
 }
 
 void render(PImage img)
 {
    final int w=img.width;
    final int h=img.height;
-   final float[][] k={{1,3},
-                      {4,2}};
 
     for (int i=0;i<w*h;i++)
     {
@@ -56,11 +51,10 @@ void render(PImage img)
         */
         int g=dither(x,y,ii,32,32);
         int b=dither(x,y,ii,40,92);
-         
+       //  int r=dither(x,y,ii,2550,0);
         
-        //color c=color(0,32+32*ii,92+40*ii); //<>//
-        color c=color(0,g,b);
-        //color c=color(v);
+        color c=color(0,g,b); //<>//
+
         img.pixels[i]=c;
     }
     img.updatePixels();
