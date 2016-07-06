@@ -20,11 +20,21 @@ float intensity(float x,float y,int i)
     n=dx.cross(dy).normalize();
     
     l=PVector.sub(m,top).normalize();
-    return n.dot(l);
+    return PVector.sub(m,p).mag()*n.dot(l);
 }
 
 float surf(float x,float y)
 {
-     return sin(0.2+y)*cos(1+y*7+sin(5*(x-y)));
+     return sin(0.2+y)*cos(y+sin(5*(x/(0.2+y))));
    // return noise(x*10,y*10);
 }
+
+/*
+  Something different: try this harmonograph:
+  
+  loop:
+      x=sin(a*y)+cos(b*x)-cos(c*z)
+      y=sin(d*x)+cos(e*y)-cos(f*z)
+      z+=0.1
+      plot x,y,z,white
+*/
