@@ -25,16 +25,6 @@ float intensity(float x,float y,int i)
 
 float surf(float x,float y)
 {
-     return sin(0.2+y)*cos(y+sin(5*(x/(0.2+y))));
+ return cos(3.0*x*cos(3.0*y*sin(x)));
    // return noise(x*10,y*10);
 }
-
-/*
-  Something different: try this harmonograph:
-  
-  loop:
-      x=sin(a*y)+cos(b*x)-cos(c*z)
-      y=sin(d*x)+cos(e*y)-cos(f*z)
-      z+=0.1
-      plot x,y,z,white
-*/

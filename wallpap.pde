@@ -5,7 +5,7 @@ void setup()
 {
     size(768,512);
     buffer=createImage(768,512,RGB);
-    frameRate(15);
+    frameRate(30);
 }
 
 void draw()
